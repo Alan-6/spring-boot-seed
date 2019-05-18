@@ -25,6 +25,7 @@
         <beanutils.version>1.9.3</beanutils.version>
         <logging.version>1.2</logging.version>
         <collections.version>3.2.2</collections.version>
+        <swagger2.version>2.9.2</swagger2.version>
         <spring.boot.maven.plugin>2.1.4.RELEASE</spring.boot.maven.plugin>
     </properties>
 
@@ -72,6 +73,19 @@
                 <artifactId>commons-collections</artifactId>
                 <version>${collections.version}</version>
             </dependency>
+
+            <!-- Swagger2 Begin -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <!-- Swagger2 End -->
         </dependencies>
     </dependencyManagement>
 
