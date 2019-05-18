@@ -4,8 +4,13 @@ server:
 spring:
   application:
     name: seed
-  datasource:
+  druid:
+    druidClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.31.186:3306/product-seed?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: 123456
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ****
+    password: ********
+    maxActive: 20
+    minIdle: 5
+    maxWait: 10000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000

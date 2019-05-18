@@ -25,6 +25,7 @@
         <beanutils.version>1.9.3</beanutils.version>
         <logging.version>1.2</logging.version>
         <collections.version>3.2.2</collections.version>
+        <druid.version>1.1.9</druid.version>
         <spring.boot.maven.plugin>2.1.4.RELEASE</spring.boot.maven.plugin>
     </properties>
 
@@ -40,19 +41,27 @@
             </dependency>
 
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
+            <!-- 数据库配置 -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.connector.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- 工具 -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok}</version>
             </dependency>
 
             <dependency>
