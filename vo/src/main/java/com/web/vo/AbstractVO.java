@@ -17,7 +17,6 @@ import java.util.Date;
 public abstract class AbstractVO {
 
     private int id;
-    private String remark;
     private Date createdDate;
     private int createdUser;
     private Date updatedDate;
@@ -26,17 +25,15 @@ public abstract class AbstractVO {
     public AbstractVO() {
     }
 
-    public AbstractVO(String remark, Date createdDate, int createdUser, Date updatedDate, int updatedUser) {
-        this.remark = remark;
+    public AbstractVO(Date createdDate, int createdUser, Date updatedDate, int updatedUser) {
         this.createdDate = createdDate;
         this.createdUser = createdUser;
         this.updatedDate = updatedDate;
         this.updatedUser = updatedUser;
     }
 
-    public AbstractVO(int id, String remark, Date createdDate, int createdUser, Date updatedDate, int updatedUser) {
+    public AbstractVO(int id, Date createdDate, int createdUser, Date updatedDate, int updatedUser) {
         this.id = id;
-        this.remark = remark;
         this.createdDate = createdDate;
         this.createdUser = createdUser;
         this.updatedDate = updatedDate;

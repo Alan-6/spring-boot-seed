@@ -1,5 +1,6 @@
 package com.web.dao.entity;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -9,20 +10,31 @@ import java.util.Date;
  * @Description: TODO
  * @date 2019/5/12 17:56
  */
-public class AbstractEntity {
+@MappedSuperclass
+public abstract class AbstractEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
-    private String remark;
+
+    @Column(name = "create_date")
     private Date createdDate;
+
+    @Column(name = "create_user")
     private int createdUser;
+
+    @Column(name = "update_date")
     private Date updatedDate;
+
+    @Column(name = "update_user")
     private int updatedUser;
 
     public AbstractEntity() {
     }
 
-    public AbstractEntity(int id, String remark, Date createdDate, int createdUser, Date updatedDate, int updatedUser) {
+    public AbstractEntity(int id, Date createdDate, int createdUser, Date updatedDate, int updatedUser) {
         this.id = id;
-        this.remark = remark;
         this.createdDate = createdDate;
         this.createdUser = createdUser;
         this.updatedDate = updatedDate;
@@ -35,14 +47,6 @@ public class AbstractEntity {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
     }
 
     public Date getCreatedDate() {
