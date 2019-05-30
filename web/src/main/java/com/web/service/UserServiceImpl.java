@@ -9,6 +9,7 @@ import com.web.dao.repositories.UserRepository;
 import com.web.vo.UserVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -30,6 +31,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     RoleRepository roleRepository;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public List<UserVO> findALl() {
@@ -64,12 +68,7 @@ public class UserServiceImpl implements UserService {
         List<RoleEntity> entities = new ArrayList<>();
         entities.add(roleEntity);
         entity.setRoles(entities);
-        /*if (!userBO.getRoles().isEmpty()) {
-            RoleEntity role = roleRepository.getOne(userBO.getRoles().get(0).getId());
-            List<RoleEntity> entities = new ArrayList<>();
-            entities.add(role);
-            entity.setRoles(entities);
-        }*/
+        entity.setPassword(passwordEncoder.encode(entity.getPassword()));
         userRepository.save(entity);
     }
 
